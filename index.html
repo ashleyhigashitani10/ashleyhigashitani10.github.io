@@ -7,7 +7,7 @@
     body {
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        background-color: #f6f4f1;
+        background: linear-gradient(135deg, #f8f7f4, #ece9e4);
         color: #1c1c1c;
     }
 
@@ -19,27 +19,28 @@
     h1 {
         font-size: 52px;
         font-weight: 600;
-        letter-spacing: -1px;
         margin-bottom: 12px;
     }
 
     .subtitle {
-        color: #6b6b6b;
+        color: #5f6368;
         font-size: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
     }
 
     header a {
-        color: #8c6f56;
+        display: inline-block;
+        background-color: #d97706;
+        color: white;
+        padding: 10px 22px;
+        border-radius: 30px;
         text-decoration: none;
         font-weight: 500;
-        border-bottom: 1px solid #8c6f56;
-        padding-bottom: 2px;
         transition: 0.3s ease;
     }
 
     header a:hover {
-        opacity: 0.6;
+        background-color: #b45309;
     }
 
     section {
@@ -49,13 +50,16 @@
     }
 
     .project {
-        padding: 40px 0;
-        border-bottom: 1px solid #e5e2dd;
+        background: white;
+        padding: 35px;
+        margin-bottom: 25px;
+        border-radius: 16px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.06);
         transition: 0.3s ease;
     }
 
     .project:hover {
-        transform: translateX(8px);
+        transform: translateY(-6px);
     }
 
     .project h3 {
@@ -65,28 +69,30 @@
     }
 
     .project p {
-        margin: 10px 0 15px 0;
-        color: #5f5f5f;
+        margin: 12px 0 20px 0;
+        color: #5f6368;
         font-size: 17px;
     }
 
     .project a {
-        color: #8c6f56;
+        background-color: #1f2937;
+        color: white;
+        padding: 8px 18px;
+        border-radius: 20px;
         text-decoration: none;
-        font-weight: 500;
-        border-bottom: 1px solid transparent;
+        font-size: 14px;
         transition: 0.3s ease;
     }
 
     .project a:hover {
-        border-bottom: 1px solid #8c6f56;
+        background-color: #111827;
     }
 
     footer {
         text-align: center;
         padding: 80px 20px;
         font-size: 14px;
-        color: #9c9c9c;
+        color: #9ca3af;
     }
 </style>
 </head>
