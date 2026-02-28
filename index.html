@@ -103,17 +103,56 @@ footer {
 </style>
 </head>
 
+<script>
+    const projects = document.querySelectorAll('.project');
+
+    projects.forEach((project, index) => {
+        project.style.opacity = 0;
+        project.style.transform = "translateY(20px)";
+
+        setTimeout(() => {
+            project.style.transition = "all 0.6s ease";
+            project.style.opacity = 1;
+            project.style.transform = "translateY(0)";
+        }, index * 200);
+    });
+</script>
+
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark-mode");
+}
+</script>
+
 <body>
 
 <header>
     <h1>Ashley Higashitani</h1>
-    <p class="subtitle">Business Information Technology Student | Data Analytics</p>
+    <p class="subtitle" id="typing"></p>
+    <script>
+const text = "Business Information Technology Student | Data Analtics";
+let i = 0;
+
+function typeEffect() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeEffect, 40);
+    }
+}
+
+typeEffect();
+</script>
      <p>
         <a href="https://linkedin.com/in/ashley-higashitani-a11320280" target="_blank">
             LinkedIn →
         </a>
     </p>
 </header>
+
+<button onclick="toggleMode()" class="header-button">
+    Toggle Theme
+</button>
 
 <section>
 
