@@ -1,167 +1,270 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Ashley Higashitani | GitHub Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background-color: #f3f4f8;
-            color: #2e2e3a;
-        }
-
-        header {
-            padding: 120px 20px 60px 20px;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 48px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #3f3d56;
-        }
-
-        .subtitle {
-            color: #7a7a8c;
-            font-size: 18px;
-            margin-bottom: 25px;
-            min-height: 24px;
-        }
-
-        .header-button {
-            display: inline-block;
-            background-color: #e6dcfa;
-            color: #4b3f72;
-            padding: 10px 24px;
-            border-radius: 24px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: 0.3s ease;
-        }
-
-        .header-button:hover {
-            background-color: #d6c8f5;
-        }
-
-        section {
-            max-width: 750px;
-            margin: auto;
-            padding: 40px 20px 100px 20px;
-        }
-
-        .project {
-            background: white;
-            padding: 35px;
-            margin-bottom: 25px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(63,61,86,0.08);
-            transition: 0.4s ease;
-            border: 1px solid #ececf3;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .project h3 {
-            margin: 0;
-            font-size: 22px;
-            font-weight: 600;
-            color: #3f3d56;
-        }
-
-        .project p {
-            margin: 12px 0 20px 0;
-            color: #7a7a8c;
-            font-size: 16px;
-        }
-
-        .project a {
-            display: inline-block;
-            background-color: #dcd0f8;
-            color: #3f3d56;
-            padding: 8px 18px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 14px;
-            transition: 0.3s ease;
-        }
-
-        .project a:hover {
-            background-color: #cbb8f3;
-        }
-
-        footer {
-            text-align: center;
-            padding: 60px 20px;
-            font-size: 14px;
-            color: #a0a0b2;
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <h1>Ashley Higashitani</h1>
-    <p class="subtitle" id="typing"></p>
-    <a href="https://www.linkedin.com/in/ashley-higashitani-a11320280/" target="_blank" class="header-button">
-        LinkedIn
-    </a>
-</header>
-
-<section>
-
-    <div class="project">
-        <h3>Women in STEM analysis</h3>
-        <p>Data analysis and visualization using Python.</p>
-        <a href="https://github.com/ashleyhigashitani10/women_in_stem_data_analysis">View Project</a>
-    </div>
-
-    <div class="project">
-        <h3>The Colour Compass</h3>
-        <p>Data Analysis with Unstrucutured Data.</p>
-        <a href="https://github.com/ashleyhigashitani10/The_Colour_Compass">View Project</a>
-    </div>
-
-</section>
-
-<footer>
-    © <span id="year"></span> Ashley
-</footer>
-
-<script>
-    /* Typing Effect */
-    const text = "Business Information Technology Student | Data Analytics Management";
-    let i = 0;
-
-    function typeEffect() {
-        if (i < text.length) {
-            document.getElementById("typing").innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typeEffect, 40);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ashley Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f5f3ff, #fdf2f8);
+      color: #333;
     }
 
-    typeEffect();
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
-    /* Fade-in Projects */
-    const projects = document.querySelectorAll('.project');
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
 
-    projects.forEach((project, index) => {
-        setTimeout(() => {
-            project.style.opacity = 1;
-            project.style.transform = "translateY(0)";
-        }, index * 200);
-    });
+    .hero-text h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
 
-    /* Auto Year */
-    document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+    .hero-text p {
+      opacity: 0.8;
+    }
 
+    .buttons a {
+      display: inline-block;
+      margin-right: 10px;
+      padding: 10px 18px;
+      border-radius: 20px;
+      background: #d8b4fe;
+      text-decoration: none;
+      color: #333;
+      transition: 0.3s;
+    }
+
+    .buttons a:hover {
+      transform: translateY(-2px);
+      background: #c084fc;
+    }
+
+    .hero-img img {
+      width: 180px;
+      border-radius: 20px;
+      transform: rotate(-3deg);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .image-placeholder {
+      width: 180px;
+      height: 220px;
+      border-radius: 20px;
+      transform: rotate(-3deg);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.75);
+      border: 2px dashed #c4b5fd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px;
+      color: #6b7280;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.4rem;
+    }
+
+    .section-title {
+      margin-top: 60px;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.8rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-5px) rotate(-1deg);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .project-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 14px;
+      border-radius: 15px;
+      background: #c4b5fd;
+      text-decoration: none;
+      color: #333;
+      font-size: 0.8rem;
+      transition: 0.3s;
+    }
+
+    .project-btn:hover {
+      background: #a78bfa;
+      transform: translateY(-2px);
+    }
+
+    .project-placeholder {
+      width: 100%;
+      height: 180px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #f5f3ff, #fde7f3);
+      border: 2px dashed #d8b4fe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7c3aed;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.3rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #ede9fe;
+      padding: 5px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      margin-right: 5px;
+    }
+
+    .skills {
+      margin-top: 20px;
+    }
+
+    .skills span {
+      display: inline-block;
+      background: #fbcfe8;
+      padding: 8px 12px;
+      border-radius: 15px;
+      margin: 5px;
+      font-size: 0.85rem;
+    }
+
+    .photo-strip {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .photo-strip img {
+      width: 100px;
+      border-radius: 10px;
+      transform: rotate(-3deg);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .mini-photo-placeholder {
+      width: 100px;
+      height: 120px;
+      border-radius: 10px;
+      transform: rotate(-3deg);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.75);
+      border: 2px dashed #f9a8d4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8px;
+      color: #6b7280;
+      font-family: 'Patrick Hand', cursive;
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Ashley Higashitani</h1>
+        <p>BIT Student • Data Analytics • Building cool things with data</p>
+        <div class="buttons">
+          <a href="https://www.linkedin.com/in/ashley-higashitani-a11320280/" target="_blank">LinkedIn</a>
+          <a href="#">GitHub</a>
+        </div>
+      </div>
+
+      <div class="hero-img">
+        <div class="image-placeholder">your photo here ♡</div>
+      </div>
+    </div>
+
+    <h2 class="section-title">featured projects ✿</h2>
+
+    <div class="projects">
+
+      <div class="card">
+        <div class="project-placeholder">project cover here</div>
+        <h3>Women in STEM Analysis</h3>
+        <p>Analyzing gender representation in STEM using Python and data visualization.</p>
+        <a href="https://github.com/ashleyhigashitani10/women_in_stem_data_analysis" target="_blank" class="project-btn">view project →</a>
+        <div>
+          <span class="tag">python</span>
+          <span class="tag">data viz</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="project-placeholder">project cover here</div>
+        <h3>The Colour Compass</h3>
+        <p>Exploring global color trends using unstructured data and analysis.</p>
+        <a href="https://github.com/ashleyhigashitani10/The_Colour_Compass" target="_blank" class="project-btn">view project →</a>
+        <div>
+          <span class="tag">data</span>
+          <span class="tag">analysis</span>
+        </div>
+      </div>
+
+    </div>
+
+    <h2 class="section-title">tools i use ✧</h2>
+    <div class="skills">
+      <span>Python</span>
+      <span>SQL</span>
+      <span>Excel</span>
+      <span>Power BI</span>
+      <span>Pandas</span>
+    </div>
+
+    <h2 class="section-title">little things about me ♡</h2>
+    <div class="photo-strip">
+      <div class="mini-photo-placeholder">your photo</div>
+      <div class="mini-photo-placeholder">your photo</div>
+      <div class="mini-photo-placeholder">your photo</div>
+    </div>
+
+    <footer>
+      made with ✿ by ashley
+    </footer>
+
+  </div>
 </body>
 </html>
-
-
-
