@@ -4,267 +4,210 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ashley Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Patrick+Hand&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #f4ede5;
+      --paper: #fffaf5;
+      --paper-2: #f1e4d6;
+      --ink: #2a1c1a;
+      --muted: #6a5149;
+      --deep-red: #8f2f2a;
+      --red-dark: #5d1d1a;
+      --brown: #a0785a;
+      --tape: #d8c19d;
+      --line: rgba(66, 42, 37, 0.12);
+      --shadow: 0 16px 36px rgba(61, 32, 26, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #2b0f0f, #5a2a27);
-      color: #333;
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(143, 47, 42, 0.10), transparent 30%),
+        linear-gradient(180deg, #efe4d7 0%, var(--bg) 100%);
+      color: var(--ink);
     }
 
     .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 40px 20px;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
     }
 
-    .hero {
+    .editorial-frame {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .editorial-frame::before,
+    .editorial-frame::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(143, 47, 42, 0.06);
+      z-index: 0;
+    }
+
+    .editorial-frame::before {
+      top: -70px;
+      right: -40px;
+    }
+
+    .editorial-frame::after {
+      bottom: -80px;
+      left: -60px;
+    }
+
+    .topbar {
+      position: relative;
+      z-index: 2;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      padding: 18px 28px;
+      border-bottom: 1px solid var(--line);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.72rem;
+      color: var(--muted);
+      background: rgba(255, 250, 245, 0.85);
+      backdrop-filter: blur(4px);
     }
 
-    .hero-text h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+    .topbar nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
     }
 
-    .hero-text p {
-      opacity: 0.8;
+    .topbar a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 26px;
+      padding: 42px 28px 24px;
+      align-items: start;
+    }
+
+    .hero-copy {
+      position: relative;
+      padding-right: 8px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(143, 47, 42, 0.18);
+      background: rgba(143, 47, 42, 0.05);
+      color: var(--deep-red);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero-copy h1 {
+      margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 9vw, 6.7rem);
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+      color: var(--deep-red);
+    }
+
+    .hero-copy .name {
+      display: block;
+      margin-top: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.98rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .intro-card {
+      margin-top: 26px;
+      max-width: 560px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(241,228,214,0.86));
+      border: 1px solid var(--line);
+      padding: 22px 22px 18px;
+      position: relative;
+      box-shadow: 0 10px 24px rgba(75, 39, 32, 0.08);
+    }
+
+    .intro-card::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 26px;
+      width: 74px;
+      height: 22px;
+      background: rgba(216, 193, 157, 0.72);
+      transform: rotate(-4deg);
+      border-radius: 3px;
+    }
+
+    .intro-card p {
+      margin: 0 0 16px;
+      line-height: 1.7;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .buttons a {
-      display: inline-block;
-      margin-right: 10px;
-      padding: 10px 18px;
-      border-radius: 20px;
-      background: #7a2e
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      border-radius: 999px;
       text-decoration: none;
-      color: #333;
-      transition: 0.3s;
+      font-size: 0.9rem;
+      color: var(--paper);
+      background: var(--deep-red);
+      transition: transform 0.25s ease, background 0.25s ease;
+      box-shadow: 0 8px 18px rgba(93, 29, 26, 0.18);
+    }
+
+    .buttons a.secondary {
+      background: var(--ink);
     }
 
     .buttons a:hover {
       transform: translateY(-2px);
-      background: #c084fc;
+      background: var(--red-dark);
     }
 
-    .hero-img img {
-      width: 180px;
-      border-radius: 20px;
-      transform: rotate(-3deg);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-
-    .image-placeholder {
-      width: 180px;
-      height: 220px;
-      border-radius: 20px;
-      transform: rotate(-3deg);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      background: rgba(255,255,255,0.75);
-      border: 2px dashed #c4b5fd;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 16px;
-      color: #6b7280;
-      font-family: 'Patrick Hand', cursive;
-      font-size: 1.4rem;
-    }
-
-    .section-title {
-      margin-top: 60px;
-      font-family: 'Patrick Hand', cursive;
-      font-size: 1.8rem;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      margin-top: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      transition: 0.3s;
+    .hero-visual {
       position: relative;
+      min-height: 500px;
     }
 
-    .card:hover {
-      transform: translateY(-5px) rotate(-1deg);
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 10px;
-    }
-
-    .project-btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 8px 14px;
-      border-radius: 15px;
-      background: #c4b5fd;
-      text-decoration: none;
-      color: #333;
-      font-size: 0.8rem;
-      transition: 0.3s;
-    }
-
-    .project-btn:hover {
-      background: #a78bfa;
-      transform: translateY(-2px);
-    }
-
-    .project-placeholder {
-      width: 100%;
-      height: 180px;
-      border-radius: 12px;
-      margin-bottom: 10px;
-      background: linear-gradient(135deg, #f5f3ff, #fde7f3);
-      border: 2px dashed #d8b4fe;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #7c3aed;
-      font-family: 'Patrick Hand', cursive;
-      font-size: 1.3rem;
-    }
-
-    .tag {
-      display: inline-block;
-      background: #ede9fe;
-      padding: 5px 10px;
-      border-radius: 12px;
-      font-size: 0.75rem;
-      margin-right: 5px;
-    }
-
-    .skills {
-      margin-top: 20px;
-    }
-
-    .skills span {
-      display: inline-block;
-      background: #fbcfe8;
-      padding: 8px 12px;
-      border-radius: 15px;
-      margin: 5px;
-      font-size: 0.85rem;
-    }
-
-    .photo-strip {
-      display: flex;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .photo-strip img {
-      width: 100px;
-      border-radius: 10px;
-      transform: rotate(-3deg);
-      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    }
-
-    .mini-photo-placeholder {
-      width: 100px;
-      height: 120px;
-      border-radius: 10px;
-      transform: rotate(-3deg);
-      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-      background: rgba(255,255,255,0.75);
-      border: 2px dashed #f9a8d4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 8px;
-      color: #6b7280;
-      font-family: 'Patrick Hand', cursive;
-    }
-
-    footer {
-      margin-top: 60px;
-      text-align: center;
-      opacity: 0.6;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-
-    <div class="hero">
-      <div class="hero-text">
-        <h1>Ashley Higashitani</h1>
-        <p>BIT Student • Data Analytics • Building cool things with data</p>
-        <div class="buttons">
-          <a href="https://www.linkedin.com/in/ashley-higashitani-a11320280/" target="_blank">LinkedIn</a>
-          <a href="#">GitHub</a>
-        </div>
-      </div>
-
-      <div class="hero-img">
-        <div class="image-placeholder">your photo here ♡</div>
-      </div>
-    </div>
-
-    <h2 class="section-title">featured projects ✿</h2>
-
-    <div class="projects">
-
-      <div class="card">
-        <div class="project-placeholder">project cover here</div>
-        <h3>Women in STEM Analysis</h3>
-        <p>Analyzing gender representation in STEM using Python and data visualization.</p>
-        <a href="https://github.com/ashleyhigashitani10/women_in_stem_data_analysis" target="_blank" class="project-btn">view project →</a>
-        <div>
-          <span class="tag">python</span>
-          <span class="tag">data viz</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="project-placeholder">project cover here</div>
-        <h3>The Colour Compass</h3>
-        <p>Exploring global color trends using unstructured data and analysis.</p>
-        <a href="https://github.com/ashleyhigashitani10/The_Colour_Compass" target="_blank" class="project-btn">view project →</a>
-        <div>
-          <span class="tag">data</span>
-          <span class="tag">analysis</span>
-        </div>
-      </div>
-
-    </div>
-
-    <h2 class="section-title">tools i use ✧</h2>
-    <div class="skills">
-      <span>Python</span>
-      <span>SQL</span>
-      <span>Excel</span>
-      <span>Power BI</span>
-      <span>Pandas</span>
-    </div>
-
-    <h2 class="section-title">little things about me ♡</h2>
-    <div class="photo-strip">
-      <div class="mini-photo-placeholder">your photo</div>
-      <div class="mini-photo-placeholder">your photo</div>
-      <div class="mini-photo-placeholder">your photo</div>
-    </div>
-
-    <footer>
-      made with ✿ by ashley
-    </footer>
-
-  </div>
-</body>
-</html>
+    .main-photo {
+      width: min(100%,
