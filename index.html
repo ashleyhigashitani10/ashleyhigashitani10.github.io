@@ -26,6 +26,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
@@ -33,6 +37,10 @@
         radial-gradient(circle at top left, rgba(143, 47, 42, 0.10), transparent 30%),
         linear-gradient(180deg, #efe4d7 0%, var(--bg) 100%);
       color: var(--ink);
+    }
+
+    a {
+      color: inherit;
     }
 
     .container {
@@ -95,7 +103,11 @@
 
     .topbar a {
       text-decoration: none;
-      color: inherit;
+      transition: opacity 0.2s ease;
+    }
+
+    .topbar a:hover {
+      opacity: 0.65;
     }
 
     .hero {
@@ -156,13 +168,17 @@
       box-shadow: 0 10px 24px rgba(75, 39, 32, 0.08);
     }
 
-    .intro-card::before {
+    .intro-card::before,
+    .feature-project::before,
+    .stacked-project::before,
+    .tools-card::before,
+    .moments-card::before {
       content: "";
       position: absolute;
       top: -10px;
-      left: 26px;
-      width: 74px;
-      height: 22px;
+      left: 22px;
+      width: 72px;
+      height: 20px;
       background: rgba(216, 193, 157, 0.72);
       transform: rotate(-4deg);
       border-radius: 3px;
@@ -199,7 +215,8 @@
       background: var(--ink);
     }
 
-    .buttons a:hover {
+    .buttons a:hover,
+    .project-btn:hover {
       transform: translateY(-2px);
       background: var(--red-dark);
     }
@@ -210,4 +227,501 @@
     }
 
     .main-photo {
-      width: min(100%,
+      width: min(100%, 360px);
+      aspect-ratio: 4 / 5;
+      background: linear-gradient(135deg, #f2e1d2, #d4b193);
+      border: 12px solid #fff;
+      box-shadow: 0 18px 35px rgba(65, 34, 27, 0.16);
+      margin-left: auto;
+      position: relative;
+      transform: rotate(2deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.6rem;
+    }
+
+    .main-photo::before {
+      content: "";
+      position: absolute;
+      top: -14px;
+      left: 24px;
+      width: 92px;
+      height: 24px;
+      background: rgba(216, 193, 157, 0.85);
+      transform: rotate(-7deg);
+      border-radius: 3px;
+    }
+
+    .sticker,
+    .mini-note,
+    .search-card {
+      position: absolute;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 22px rgba(59, 32, 27, 0.1);
+    }
+
+    .sticker {
+      right: 18px;
+      top: 26px;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--deep-red);
+      transform: rotate(-6deg);
+    }
+
+    .mini-note {
+      left: 8px;
+      bottom: 82px;
+      padding: 14px 16px;
+      width: 170px;
+      transform: rotate(-5deg);
+      background: #f7eee5;
+    }
+
+    .mini-note strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.88rem;
+      color: var(--ink);
+    }
+
+    .mini-note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.5;
+    }
+
+    .search-card {
+      right: 0;
+      bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 12px 16px;
+      width: 280px;
+      background: rgba(255, 250, 245, 0.96);
+    }
+
+    .search-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .search-card span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .section {
+      position: relative;
+      z-index: 1;
+      padding: 12px 28px 10px;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin: 12px 0 22px;
+      flex-wrap: wrap;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--deep-red);
+      line-height: 0.95;
+    }
+
+    .section-heading p {
+      margin: 0;
+      max-width: 440px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .feature-project,
+    .stacked-project,
+    .tools-card,
+    .moments-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 28px rgba(59, 32, 27, 0.08);
+      position: relative;
+    }
+
+    .feature-project {
+      padding: 22px;
+      min-height: 100%;
+    }
+
+    .project-cover {
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(135deg, #f2e1d2, #d2b095);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: 'Patrick Hand', cursive;
+      color: var(--muted);
+      font-size: 1.5rem;
+      border: 10px solid #fff;
+      box-shadow: inset 0 0 0 1px rgba(66, 42, 37, 0.05);
+      margin-bottom: 18px;
+    }
+
+    .label {
+      display: inline-block;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(143, 47, 42, 0.08);
+      color: var(--deep-red);
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .feature-project h3,
+    .stacked-project h3,
+    .tools-card h3,
+    .moments-card h3 {
+      margin: 0 0 10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      line-height: 0.95;
+      color: var(--ink);
+    }
+
+    .feature-project p,
+    .stacked-project p,
+    .tools-card p,
+    .moments-card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .meta span,
+    .tool-tags span {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--paper-2);
+      color: var(--ink);
+      font-size: 0.82rem;
+    }
+
+    .project-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 17px;
+      border-radius: 999px;
+      background: var(--deep-red);
+      color: var(--paper);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .projects-side {
+      display: grid;
+      gap: 20px;
+    }
+
+    .stacked-project,
+    .tools-card,
+    .moments-card {
+      padding: 20px;
+    }
+
+    .small-cover {
+      width: 100%;
+      height: 170px;
+      background: linear-gradient(135deg, #ead7c8, #c89d7e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: 'Patrick Hand', cursive;
+      color: var(--muted);
+      font-size: 1.3rem;
+      border: 10px solid #fff;
+      margin-bottom: 16px;
+    }
+
+    .tool-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .moments-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .moment {
+      aspect-ratio: 3 / 4;
+      background: linear-gradient(135deg, #eadac9, #d9b193);
+      border: 8px solid #fff;
+      box-shadow: 0 10px 20px rgba(60, 33, 28, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: 'Patrick Hand', cursive;
+      color: var(--muted);
+      font-size: 1.15rem;
+      transform: rotate(-3deg);
+    }
+
+    .moment:nth-child(2) {
+      transform: rotate(2deg);
+    }
+
+    .moment:nth-child(3) {
+      transform: rotate(-1deg);
+    }
+
+    .footer {
+      position: relative;
+      z-index: 1;
+      margin-top: 16px;
+      padding: 24px 28px 30px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: auto;
+        padding-top: 8px;
+      }
+
+      .main-photo {
+        margin: 0 auto;
+      }
+
+      .mini-note {
+        left: 0;
+      }
+
+      .search-card {
+        position: relative;
+        margin: 18px auto 0;
+        right: auto;
+        bottom: auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0;
+      }
+
+      .editorial-frame {
+        border: none;
+        box-shadow: none;
+      }
+
+      .topbar,
+      .hero,
+      .section,
+      .footer {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .topbar {
+        gap: 10px;
+      }
+
+      .topbar nav {
+        gap: 10px;
+      }
+
+      .intro-card,
+      .feature-project,
+      .stacked-project,
+      .tools-card,
+      .moments-card {
+        padding: 18px;
+      }
+
+      .main-photo {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="editorial-frame">
+      <div class="topbar">
+        <div>Ashley Higashitani</div>
+        <nav>
+          <a href="#projects">Projects</a>
+          <a href="#tools">Tools</a>
+          <a href="#moments">Moodboard</a>
+        </nav>
+      </div>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">Data Analytics Portfolio</div>
+          <h1>Portfolio</h1>
+          <span class="name">Ashley Higashitani</span>
+
+          <div class="intro-card">
+            <p>Business Information Technology student with a focus on data analytics, storytelling, and creative presentation. I like turning projects into something that feels both thoughtful and visually memorable.</p>
+            <div class="buttons">
+              <a href="https://www.linkedin.com/in/ashley-higashitani-a11320280/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://github.com/ashleyhigashitani10" target="_blank" rel="noopener noreferrer" class="secondary">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="sticker">editorial scrapbook</div>
+          <div class="main-photo">your photo here ♡</div>
+          <div class="mini-note">
+            <strong>currently building</strong>
+            <p>a portfolio that feels like a magazine cover, not a plain resume page.</p>
+          </div>
+          <div class="search-card">
+            <div class="search-icon">⌕</div>
+            <span>ashley portfolio aesthetic</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-heading">
+          <h2>Featured Projects</h2>
+          <p>A small collection of projects that show how I work with data, visual storytelling, and research-based problem solving.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="feature-project">
+            <div class="project-cover">project cover here</div>
+            <div class="label">featured project</div>
+            <h3>Women in STEM Analysis</h3>
+            <p>Analyzing gender representation in STEM using Python and data visualization in a way that makes the findings clear and easy to follow.</p>
+            <div class="meta">
+              <span>Python</span>
+              <span>Data Viz</span>
+              <span>Research</span>
+            </div>
+            <a href="https://github.com/ashleyhigashitani10/women_in_stem_data_analysis" target="_blank" rel="noopener noreferrer" class="project-btn">view project →</a>
+          </article>
+
+          <div class="projects-side">
+            <article class="stacked-project">
+              <div class="small-cover">project cover here</div>
+              <div class="label">creative data project</div>
+              <h3>The Colour Compass</h3>
+              <p>Exploring global color trends through unstructured data and turning the results into a project with a more visual and editorial feel.</p>
+              <div class="meta">
+                <span>Unstructured Data</span>
+                <span>Analysis</span>
+              </div>
+              <a href="https://github.com/ashleyhigashitani10/The_Colour_Compass" target="_blank" rel="noopener noreferrer" class="project-btn">view project →</a>
+            </article>
+
+            <article class="tools-card" id="tools">
+              <div class="label">tools i use</div>
+              <h3>My Toolkit</h3>
+              <p>The tools I keep coming back to when I want to organize data, analyze trends, and present information in a way that actually feels engaging.</p>
+              <div class="tool-tags">
+                <span>Python</span>
+                <span>SQL</span>
+                <span>Excel</span>
+                <span>Power BI</span>
+                <span>Pandas</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="moments">
+        <div class="section-heading">
+          <h2>Little Things</h2>
+          <p>This section keeps the scrapbook feel alive. Later, you can swap these placeholders with your own photos, screenshots, or aesthetic details.</p>
+        </div>
+
+        <article class="moments-card">
+          <div class="label">moodboard</div>
+          <h3>Pieces of the vibe</h3>
+          <p>Use this area for the photos and visuals that make the page feel like you, not just another student portfolio.</p>
+          <div class="moments-strip">
+            <div class="moment">your photo</div>
+            <div class="moment">your photo</div>
+            <div class="moment">your photo</div>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer">
+        <span>made by ashley</span>
+        <span>editorial portfolio concept</span>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
